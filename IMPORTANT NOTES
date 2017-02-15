@@ -1,0 +1,21 @@
+IMPORTANT NOTES
+	- a "state" is 88 bytes, not 80
+		- includes a todHI, todLO and whatever else is in the booklet
+	- device register area is completely different
+	- line 2 is the timer interrupt
+	- timer interrupts are interpreted as fast interrupts
+		- disabling FIQ disables interval timer but not other devices
+	- all other interrupts are interpreted as slower interrupts
+		- disabling IRQ disables all devices except interval timer
+		
+		
+	- IS THERE NO QUANTUM TIMER
+	
+	
+	
+	check time to next pseudo clock tick when scheduling
+	when interrupts happens, you add the time passed to the job's time
+	subtract it from next pseudo clock tick
+	
+	when loading timer, which is lower
+			quantum or pseudo clock time?
